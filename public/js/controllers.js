@@ -4,22 +4,74 @@
 
 angular.module('myApp.controllers', []).
 	controller('AppCtrl', function ($scope, $http) {
+		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
+		
+		$scope.logOut = function(form)
+		{
+			Parse.User.logOut();
+			$scope.currentUser = null;
+		};
+	}).
+	
+	controller('home', function ($scope)
+	{
+		$scope.login = function()
+		{
+			Parse.User.logIn($scope.user.email, $scope.user.password, {
+				success: function(user)
+				{
+					// Do stuff after successful login.
+					alert("Login success!");
+				},
 
-		$http({
-			method: 'GET',
-			url: '/api/name'
-		}).success(function (data, status, headers, config) {
-			$scope.name = data.name;
-		}).error(function (data, status, headers, config) {
-			$scope.name = 'Error!'
-		});
+				error: function(user, error)
+				{
+					alert("Error!");
+				}
+			});
+		}
 
 	}).
-	controller('MyCtrl1', function ($scope) {
-	// write Ctrl here
+
+	controller('login', function ($scope)
+	{
+		$scope.login = function()
+		{
+			Parse.User.logIn($scope.user.email, $scope.user.password, {
+				success: function(user)
+				{
+					// Do stuff after successful login.
+					alert("Login success!");
+				},
+
+				error: function(user, error)
+				{
+					alert("Error in login!");
+				}
+			});
+		}
 
 	}).
-	controller('MyCtrl2', function ($scope) {
-	// write Ctrl here
-
+	
+	controller('register', function ($scope) 
+	{
+		$scope.register = function()
+		{
+			var user = new Parse.User();
+			user.set("username", $scope.user.name);
+			user.set("password", $scope.user.password);
+			user.set("email", $scope.user.email);
+			
+			alert ("You typed: " + $scope.user.email);
+			
+			user.signUp(null, {
+				success: function(user) {
+					// Hooray! Let them use the app now.
+				},
+				error: function(user, error) {
+					// Show the error message somewhere and let the user try again.
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
+		}
 	});
