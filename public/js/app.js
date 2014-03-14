@@ -19,15 +19,19 @@ config(function ($routeProvider, $locationProvider) {
 			templateUrl: 'partials/about.html',
 			controller: 'about'
 		}).
+		/**
 		when('/login', {
 			templateUrl: 'partials/login.html',
 			controller: 'login'
-		}).
+		}). */
 		when('/register', {
 			templateUrl: 'partials/register.html',
 			controller: 'register'
 		}).
-		
+		when('/mydata', {
+			templateUrl: 'partials/mydata.html',
+			controller: 'mydata'
+		}).
 			otherwise({
 			redirectTo: '/home'
 		});
