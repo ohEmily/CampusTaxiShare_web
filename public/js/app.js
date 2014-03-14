@@ -28,9 +28,9 @@ config(function ($routeProvider, $locationProvider) {
 			templateUrl: 'partials/register.html',
 			controller: 'register'
 		}).
-		when('/mydata', {
-			templateUrl: 'partials/mydata.html',
-			controller: 'mydata'
+		when('/dashboard', {
+			templateUrl: 'partials/dashboard.html',
+			controller: 'dashboard'
 		}).
 			otherwise({
 			redirectTo: '/home'

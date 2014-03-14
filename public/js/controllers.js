@@ -7,6 +7,19 @@ angular.module('myApp.controllers', []).
 	{
 		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 		
+		/**
+		var currentUser = Parse.User.current();
+		if (!currentUser)
+		{
+			$scope.$apply(function() 
+			{
+				$location.path('/home');
+			});
+			
+			// and hide logout button
+		}
+		*/
+		
 		$scope.logOut = function(form)
 		{
 			Parse.User.logOut();
@@ -18,44 +31,25 @@ angular.module('myApp.controllers', []).
 	{
 		$scope.login = function()
 		{
-			Parse.User.logIn($scope.user.username, $scope.user.password, {
+			Parse.User.logIn($scope.user.username, $scope.user.password,
+			{
 				success: function(user)
 				{
 					// Do stuff after successful login.
-					//alert("Login success!");
-					$location.path('/register');
+					$scope.$apply(function() 
+					{
+						$location.path('/dashboard');
+					});
 				},
 
 				error: function(user, error)
 				{
-					alert("Error!");
+					alert("Error message!");
 				}
 			});
 		}
 
 	}).
-
-/**
-	controller('login', function ($scope)
-	{
-		$scope.login = function()
-		{
-			Parse.User.logIn($scope.user.username, $scope.user.password, {
-				success: function(user)
-				{
-					// Do stuff after successful login.
-					alert("Login success!");
-				},
-
-				error: function(user, error)
-				{
-					alert("Error in login!");
-				}
-			});
-		}
-
-	}).
-*/
 	
 	controller('register', function ($scope) 
 	{
@@ -69,7 +63,8 @@ angular.module('myApp.controllers', []).
 			
 			alert ("You typed: " + $scope.user.email);
 			
-			user.signUp(null, {
+			user.signUp(null, 
+			{
 				success: function(user)
 				{
 					// Hooray! Let them use the app now.
@@ -84,19 +79,23 @@ angular.module('myApp.controllers', []).
 	}).
 	
 	
-	controller('mydata', function ($scope)
+	controller('dashboard', function ($scope)
 	{
 		$scope.showdata = function()
 		{
+			alert ("On the dashboard!");
+			
 			var currentUser = Parse.User.current();
 			if (currentUser)
 			{
 				// do stuff with the user
+				
 				alert("hello " + currentUser.personal_name);
 			}
 			else
 			{
 				// show the signup or login page
 			}
+			*/
 		}
 	});
