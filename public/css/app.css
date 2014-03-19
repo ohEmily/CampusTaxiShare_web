@@ -2,7 +2,8 @@
 
 /* general */
 
-html { 
+html
+{ 
   background: url('../img/bg_ny.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -14,6 +15,7 @@ html {
 {
 	margin: 0px;
 	padding: 0px;
+	letter-spacing:-.03em;
 	color: #e4e4e4;
 	font-size: 100%;
 	font-family: Arial, sans-serif;
@@ -40,47 +42,59 @@ html {
 }
 */
 
+#footer
+{
+	color: #ee475b;
+	text-align:center;
+	position: absolute;
+	width:100%;
+	bottom: 0;
+	font-size: 120%;
+}
+
 .logout
 {
 	color: #ee475b;
 	text-align:center;
 	position: absolute;
-	left:50%;
-	bottom: 0%;
+	/* left:50%; */
+	bottom: 2%;
 	font-size: 120%;
+	font-weight:bold;
 }
-
 
 /** contents */
 
 #main
 {
-	background:rgba(0,0,0,0.7); 
+	background:rgba(0,0,0,0.7); /* 70% opacity */
 	border-radius: 10px;
 	text-align: center;
 	
 	position:absolute;
     left:50%;
     top:50%;
-	padding: 25px;
-	margin-left: -150px; /* negative margins == exactly half height and wdth */
+	padding: 20px 25px;
+	margin-left: -160px; /* negative margins == exactly half height and wdth */
 	margin-top: -200px;
-	width:300px;
-    height:400px;
+	width:320px;
+    height:405px;
 }
 
 /* title */
-#title
+h1
 {
+	font-weight:normal;
 	color: #f6eb2d;
-	font-size:200%;
+	font-size:260%;
 	text-align:center;
 	opacity: .7;
 	margin-bottom: 20px;
 }
 
-#subheading
+h2
 {
+	font-weight:normal;
 	font-size:150%;
 	margin-top: 20px;
 }
@@ -157,7 +171,7 @@ textarea
 	color: #000000;
 	font: inherit;
 	width:100%;
-	padding: 4px 0;
+	padding: 8px 0;
 	margin-top:5px;
 	margin-bottom:5px;
 	border:0;
@@ -171,7 +185,7 @@ textarea
 	background: #ee475b;
 	overflow: visible;
 	border:0;
-	padding: 4px;
+	padding: 8px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius:6px;

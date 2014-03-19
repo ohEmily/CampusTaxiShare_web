@@ -1,5 +1,16 @@
-<span id="subheading">Welcome!<br><br></span>
+<span id="subheading">Welcome, {{personal_name}}!<br><br></span>
 <span id="subheading" style="color:#ee475b">Cut costs, meet people, and stay safe.<br><br>
 </span>
 
 <span>Would you like to drive to campus or from campus?</span>
+
+<table width="100%">
+	<td width="50%">
+		<input type="button" value="to campus" class="mybutton">
+	</td>
+	<td width="50%">
+		<input type="button" value="from campus" class="mybutton">
+	</td>
+</table>
+	
+<span class="logout" ng-click="logout()">logout</span>

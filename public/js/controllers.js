@@ -6,12 +6,6 @@ angular.module('myApp.controllers', []).
 	controller('AppCtrl', function ($scope, $http)
 	{
 		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
-		
-		$scope.logOut = function(form)
-		{
-			Parse.User.logOut();
-			$scope.currentUser = null;
-		};
 	}).
 	
 	controller('home', function ($scope, $location)
@@ -66,22 +60,35 @@ angular.module('myApp.controllers', []).
 	}).
 	
 	
-	controller('dashboard', function ($scope)
+	controller('dashboard', function ($scope, $location)
 	{
 		$scope.showdata = function()
 		{
-			alert ("On the dashboard!");
-			
+			// alert("Logged in " + $scope.personal_name);
+		}
+		
+		$scope.checklogin = function()
+		{	
 			var currentUser = Parse.User.current();
 			if (currentUser)
 			{
 				// do stuff with the user
-				
-				alert("hello " + currentUser.personal_name);
+				$scope.personal_name = currentUser.get("personal_name"); 
+				$scope.showdata();
 			}
 			else
 			{
 				// show the signup or login page
+				(function() 
+				{
+					$location.path('/');
+				})();
 			}
-		}
+		}() // called when the page is opened
+				
+		$scope.logout = function()
+		{
+			Parse.User.logOut();
+			$scope.currentUser = null;
+		};
 	});
