@@ -83,6 +83,5 @@ angular.module('myApp.controllers', []).
 			{
 				// show the signup or login page
 			}
-			*/
 		}
 	});
