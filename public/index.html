@@ -17,14 +17,21 @@
 				<!--The double brackets refer to the $scope.name variable in public/js/controllers.js-->
 				<!-- <h2 id="title">Hello {{name}}</h2> -->
 				<ul class="menu">
-				<li><a href="about">about</a></li>
+				<li><a ng-mouseover="showAbout()" ng-mouseleave="hideAbout()">about</a></li>
 				<li><a href="home">login</a></li>
 				<li><a href="register">register</a></li>
 				</ul>
 				
-					<!--The partials are embeded in the ng-view div-->
-					<div ng-view id="main">
-					</div>
+				<!--The partials are embeded in the ng-view div-->
+				<div ng-view id="main" class="box">
+				</div>
+			</div>
+			
+					<!-- only set to visible on mouseover -->
+			<div id="about_hover" class="box">
+				Campus Taxi Share helps you find members of your campus community to share taxis with.<br><br>
+
+				Cut costs and meet people.
 			</div>
 		</div>
 		

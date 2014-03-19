@@ -6,6 +6,16 @@ angular.module('myApp.controllers', []).
 	controller('AppCtrl', function ($scope, $http)
 	{
 		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
+	
+		$scope.showAbout = function()
+		{
+			$("#about_hover").show();
+		};
+		
+		$scope.hideAbout = function()
+		{
+			$("#about_hover").hide();
+		};
 	}).
 	
 	controller('login', function ($scope, $location)

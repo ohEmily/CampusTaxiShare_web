@@ -21,6 +21,11 @@ html
 	font-family: Arial, sans-serif;
 }
 
+p
+{
+	margin-bottom:10px;
+}
+
 a:link,
 a:visited
 {
@@ -71,13 +76,15 @@ a:visited
 }
 
 /** contents */
-
-#main
+.box
 {
 	background:rgba(0,0,0,0.7); /* 70% opacity */
 	border-radius: 10px;
 	text-align: center;
-	
+}
+
+#main
+{
 	position:absolute;
     left:50%;
     top:50%;
@@ -198,8 +205,22 @@ textarea
 	border-radius:6px;
 }
 
-.mybutton:hover {
+.mybutton:hover 
+{
     border: none;
     background:#d44354;
     box-shadow: 0px 0px 1px #777;
+}
+
+/** about hover */
+#about_hover
+{
+	margin-top: 42px;
+	margin-right: 5px;
+	padding: 20px;
+	position:absolute;
+    right: 7%;
+    top: 0;
+	width: 30%;
+	display:none; /** hidden to start. shows on hover */
 }
