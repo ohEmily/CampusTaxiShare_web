@@ -5,7 +5,7 @@
 angular.module('myApp.controllers', []).
 	controller('AppCtrl', function ($scope, $http)
 	{
-		/* Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68"); */
+		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 	
 		$scope.showAbout = function()
 		{
@@ -72,10 +72,21 @@ angular.module('myApp.controllers', []).
 	
 	controller('dashboard', function ($scope, $location)
 	{
+		$scope.group.start_location;
+		$scope.group.end_location;
+		$scope.group.date;
+		$csope.group.time;
+		
 		$scope.showdata = function()
 		{
 			// alert("Logged in " + $scope.personal_name);
 		}
+		
+		$scope.logout = function()
+		{
+			Parse.User.logOut();
+			$scope.currentUser = null;
+		};
 		
 		$scope.checklogin = function()
 		{	
@@ -84,21 +95,16 @@ angular.module('myApp.controllers', []).
 			{
 				// do stuff with the user
 				$scope.personal_name = currentUser.get("personal_name"); 
-				$scope.showdata();
+				$scope.initialize_trip();
 			}
 			else
 			{
 				// show the signup or login page
 				(function() 
 				{
+					logout();
 					$location.path('/');
 				})();
 			}
 		}() // called when the page is opened
-				
-		$scope.logout = function()
-		{
-			Parse.User.logOut();
-			$scope.currentUser = null;
-		};
 	});
