@@ -219,7 +219,7 @@ textarea
 	margin-right: 5px;
 	padding: 20px;
 	position:absolute;
-    right: 7%;
+    right: 0%;
     top: 0;
 	width: 30%;
 	display:none; /** hidden to start. shows on hover */
