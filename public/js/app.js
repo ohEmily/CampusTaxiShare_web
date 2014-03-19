@@ -11,17 +11,13 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
 	$routeProvider.
-		when('/home', {
-			templateUrl: 'partials/home.html',
-			controller: 'home'
+		when('/login', {
+			templateUrl: 'partials/login.html',
+			controller: 'login'
 		}).
 		when('/about', {
 			templateUrl: 'partials/about.html',
 			controller: 'about'
-		}).
-		when('/login', {
-			templateUrl: 'partials/login.html',
-			controller: 'login'
 		}).
 		when('/register', {
 			templateUrl: 'partials/register.html',
@@ -32,7 +28,7 @@ config(function ($routeProvider, $locationProvider) {
 			controller: 'dashboard'
 		}).
 			otherwise({
-			redirectTo: '/home'
+			redirectTo: '/login'
 		});
 
 	$locationProvider.html5Mode(true);

@@ -8,7 +8,7 @@ angular.module('myApp.controllers', []).
 		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 	}).
 	
-	controller('home', function ($scope, $location)
+	controller('login', function ($scope, $location)
 	{
 		$scope.login = function()
 		{

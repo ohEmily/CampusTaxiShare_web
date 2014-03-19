@@ -21,6 +21,13 @@ html
 	font-family: Arial, sans-serif;
 }
 
+a:link,
+a:visited
+{
+	color: inherit;
+}
+
+/** fonts */
 @font-face 
 {
   font-family: "Roboto";
@@ -81,7 +88,7 @@ html
     height:405px;
 }
 
-/* title */
+/* titles */
 h1
 {
 	font-weight:normal;
@@ -100,7 +107,6 @@ h2
 }
 	
 /* nav bar */
-
 .nav
 {
 	list-style: none;
@@ -122,12 +128,13 @@ h2
 .menu 
 {
 	text-align:right;
+	vertical-align:middle;
 }
 
 .menu > li 
 {
   display: inline;
-  padding-right:8px;
+  padding-right:9px;
   vertical-align:middle;
 }
 
@@ -154,7 +161,7 @@ h2
   padding: 0;
 }
 
-/** forms */
+/** page elements */
 
 .myform
 {
