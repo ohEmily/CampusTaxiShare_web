@@ -16,17 +16,19 @@ html {
 	padding: 0px;
 	color: #e4e4e4;
 	font-size: 100%;
-	font-family: "Roboto", Arial, sans-serif;
+	font-family: Arial, sans-serif;
 }
 
-@font-face {
+@font-face 
+{
   font-family: "Roboto";
   /** src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype"); */
   src: url('../fonts/roboto-regular-webfont.ttf') format("truetype");
 }
 
 /**
-@font-face {
+@font-face 
+{
     font-family: 'robotoregular';
     src: url('roboto-regular-webfont.eot');
     src: url('roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),

@@ -7,19 +7,6 @@ angular.module('myApp.controllers', []).
 	{
 		Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", "V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 		
-		/**
-		var currentUser = Parse.User.current();
-		if (!currentUser)
-		{
-			$scope.$apply(function() 
-			{
-				$location.path('/home');
-			});
-			
-			// and hide logout button
-		}
-		*/
-		
 		$scope.logOut = function(form)
 		{
 			Parse.User.logOut();
