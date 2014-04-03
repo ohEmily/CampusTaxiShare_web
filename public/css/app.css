@@ -182,15 +182,10 @@ h2
 
 .myform
 {
-
 	width:100%;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea,
+.form_elements
 {
 	color: #000000;
 	font: inherit;
@@ -206,6 +201,8 @@ textarea,
 
 .mybutton
 {
+	color: #000000;
+	width: 100%;
 	background: #ee475b;
 	overflow: visible;
 	border:0;

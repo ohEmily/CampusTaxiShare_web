@@ -75,9 +75,10 @@ angular.module('myApp.controllers', []).
 		$scope.group.start_location;
 		$scope.group.end_location;
 		$scope.group.date;
-		$csope.group.time;
+		$scope.group.time;
 		
-		$scope.showdata = function()
+		$scope.createGroup = function()
+		//$scope.showdata = function()
 		{
 			// alert("Logged in " + $scope.personal_name);
 		}
