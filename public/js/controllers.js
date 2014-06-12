@@ -52,8 +52,6 @@ angular.module('myApp.controllers', []).
 			user.set("personal_name", $scope.user.personal_name);
 			user.set("email", $scope.user.email);
 			
-			alert ("You typed: " + $scope.user.email);
-			
 			user.signUp(null, 
 			{
 				success: function(user)
@@ -72,10 +70,11 @@ angular.module('myApp.controllers', []).
 	
 	controller('dashboard', function ($scope, $location)
 	{
-		$scope.group.start_location;
+		/** $scope.group.start_location;
 		$scope.group.end_location;
 		$scope.group.date;
 		$scope.group.time;
+		*/
 		
 		$scope.createGroup = function()
 		//$scope.showdata = function()

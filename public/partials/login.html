@@ -1,10 +1,12 @@
 <h1>split cabs with people from your college.</h1>
 
-<form ng-submit="login()" class="myform"> 
-<!-- ng-submit tells which function in the controller to call -->
-	<input ng-model="user.username" type="email" name="email" class="form_elements"placeholder=".edu email address"><br>
-	<input ng-model="user.password" type="password" name="password" class="form_elements" placeholder="password"><br>
-	<input type="submit" value="log in" class="mybutton form_elements">
+<form ng-submit="login()"> 
+	<div class="form-group">
+		<!-- ng-submit tells which function in the controller to call -->
+		<input ng-model="user.username" type="email" name="email" class="form-control" placeholder=".edu email address"><br>
+		<input ng-model="user.password" type="password" name="password" class="form-control" placeholder="password"><br>
+		<input type="submit" value="log in" class="mybutton">
+	</div>
 </form>
 
 <h2>Find or start a cab share group going between your school and a popular destination.</h2>

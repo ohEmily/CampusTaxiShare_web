@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-	<head>
-		<meta charset="utf8">
-		<base href="/">
-		<title>Campus Taxi Share</title>
-		<link rel="stylesheet" href="css/app.css">
-	</head>
-	<body>		
-		<div ng-controller="AppCtrl">
-			<div class="nav">
-				<!-- logo and title of app -->
-				<a href="index.html">
-				<img src="img/icon_small.png" alt="car logo" class="logo" >
+<head>
+	<meta charset="utf8">
+	<base href="/">
+	<title>Campus Taxi Share</title>
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div ng-controller="AppCtrl">
+	  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+          <div class="navbar-header">
+			<!-- logo and title of app -->
+			<a class="navbar-brand" href="index.html">
+				<img src="img/icon_small.png" alt="car logo" class="logo">
 				<img src="img/text_logo_small.png" alt="Campus Taxi Share" class="logo">
-				</a>
-				<!--The double brackets refer to the $scope.name variable in public/js/controllers.js-->
-				<!-- <h2 id="title">Hello {{name}}</h2> -->
-				<ul class="menu">
-					<li><a ng-mouseover="showAbout()" ng-mouseleave="hideAbout()">about</a></li>
-					<li><a href="login">login</a></li>
-					<li><a href="register">register</a></li>
-				</ul>
-				
-				<!--The partials are embeded in the ng-view div-->
-				<div ng-view id="main" class="box">
-				</div>
-			</div>
-			
-					<!-- only set to visible on mouseover -->
-			<div id="about_hover" class="box">
-				Campus Taxi Share helps you find members of your campus community to share taxis with.<br><br>
+			</a>
+		  </div>
 
+		  <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+			    <li><a ng-mouseover="showAbout()" ng-mouseleave="hideAbout()">about</a></li>
+				<li><a href="login">login</a></li>
+				<li><a href="register">register</a></li>
+            </ul>
+          </div>
+        </div>
+	  </div>
+	  <!--The partials are embeded in the ng-view div-->
+	  <div ng-view id="main" class="box"></div>
+    </div>
+	
+		<!-- only set to visible on mouseover -->
+		<div id="about_hover" class="box">
+			Campus Taxi Share helps you find members of your campus community to share taxis with.<br><br>
 				Cut costs and meet people.<br><br>
-			</div>
 		</div>
+	</div
 		
 		<span id="footer">Campus Taxi Share is made and maintained by <a href="http://emilypakulski.com" target="_blank">Emily Pakulski</a>. Background by <a href="http://michaelgarate.com" target="_blank">Michael Garate</a>.</span>
 
