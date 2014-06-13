@@ -18,11 +18,11 @@ angular.module('myApp.controllers', []).
 		};
 	}).
 	
-	controller('login', function ($scope, $location)
+	controller('user_auth', function ($scope, $location)
 	{
-		$scope.login = function()
+		var login = function(username, password)
 		{
-			Parse.User.logIn($scope.user.username, $scope.user.password,
+			Parse.User.logIn(username, password,
 			{
 				success: function(user)
 				{
@@ -39,12 +39,13 @@ angular.module('myApp.controllers', []).
 				}
 			});
 		}
-
-	}).
-	
-	controller('register', function ($scope) 
-	{
-		$scope.register = function()
+		
+		$scope.submitLogin = function()
+		{
+			login($scope.user.username, $scope.user.password);
+		}
+		
+		$scope.submitRegister = function()
 		{
 			var user = new Parse.User();
 			user.set("username", $scope.user.email);
@@ -57,6 +58,7 @@ angular.module('myApp.controllers', []).
 				success: function(user)
 				{
 					// Hooray! Let them use the app now.
+					login($scope.user.email, $scope.user.password);
 				},
 				error: function(user, error)
 				{

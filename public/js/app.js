@@ -4,16 +4,14 @@
 
 angular.module('myApp', [
 	'ngRoute',
-	'myApp.controllers',
-	'myApp.filters',
-	'myApp.services',
-	'myApp.directives'
+	'myApp.controllers'
 ]).
+
 config(function ($routeProvider, $locationProvider) {
 	$routeProvider.
 		when('/login', {
 			templateUrl: 'partials/login.html',
-			controller: 'login'
+			controller: 'user_auth'
 		}).
 		when('/about', {
 			templateUrl: 'partials/about.html',
@@ -21,7 +19,7 @@ config(function ($routeProvider, $locationProvider) {
 		}).
 		when('/register', {
 			templateUrl: 'partials/register.html',
-			controller: 'register'
+			controller: 'user_auth'
 		}).
 		when('/dashboard', {
 			templateUrl: 'partials/dashboard.html',
