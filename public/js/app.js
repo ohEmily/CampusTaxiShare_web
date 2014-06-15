@@ -4,8 +4,11 @@
 
 angular.module('myApp', [
 	'ngRoute',
-	'myApp.controllers'
-]).
+	'myApp.controllers',
+	'myApp.filters',
+	'myApp.services',
+	'myApp.directives'
+  ]).
 
   config(function ($routeProvider, $locationProvider) {
 	$routeProvider.
