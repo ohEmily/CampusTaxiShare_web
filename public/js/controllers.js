@@ -73,12 +73,11 @@ angular.module('myApp.controllers', []).
 		}
 	}).
 	
-	
 	controller('dashboard', function ($scope, $location)
 	{
 		$scope.createGroup = function()
 		{
-			// this comes later
+			
 		}
 		
 		$scope.logout = function()
