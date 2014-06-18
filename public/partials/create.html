@@ -2,7 +2,7 @@
   <div class="row">
 	<div class="col-sm-3 col-md-2 sidebar">
 	  <ul class="nav nav-sidebar">
-		<li><a href="#">Overview</a></li>
+		<li><a href="/dashboard">Overview</a></li>
 		<li class="active"><a href="#">Create a trip</a></li>
 	  </ul>
 	  <ul class="nav nav-sidebar">
@@ -14,8 +14,34 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	  <div class="box-dash">	
 		<h1 class="page-header">Create a Trip</h1>
+
+		<p>
+		Tell us about your trip. We need to know when you're heading out, where to, and where from.
+		</p>
+		
+		<h3>Trip date and time</h3>
 			
+
 			
+		<h3>Start point</h3>
+		<select data-placeholder="Choose a starting location..." class="chosen-select" style="width:350px;" tabindex="2">
+			<option value=""></option>
+			<option value="Option1">Option 1</option>
+			<option value="Option2">Option 2</option>
+		</select>
+
+			
+		<h3>End point</h3>
+		<select data-placeholder="Choose a starting location..." class="chosen-select" style="width:350px;" tabindex="2">
+			<option value=""></option>
+			<option value="Option1">Option 1</option>
+			<option value="Option2">Option 2</option>
+		</select>
+			
+		<script type="text/javascript">
+			$(".chosen-select").chosen();
+		</script>
+	
 			
 		</div>
 	</div>

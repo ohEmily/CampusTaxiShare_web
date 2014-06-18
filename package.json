@@ -1,6 +1,7 @@
 {
 	"name": "application-name",
 	"version": "0.0.1",
+	"description": "Helps you find members of your campus community to share taxis with. Cut costs, meet people, and stay safe.",
 	"private"		: true,
 	"dependencies"	: {
 		"express": "*"
