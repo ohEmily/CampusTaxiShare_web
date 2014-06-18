@@ -14,27 +14,29 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	  <div class="box-dash">	
 		<h1 class="page-header">Create a Trip</h1>
-
-		<p>
-		Tell us about your trip. We need to know when you're heading out, where to, and where from.
-		</p>
 		
-		<h3>Trip date and time</h3>
-		
+		<div class="form-group">
+			<!-- temporary -->
+			<label for="timeAndDateIn">Time and date (mm/dd/yyyy hh:ss)</label>
+			<input type="datetime" class="form-control" id="timeAndDateIn" placeholder="Enter time and date">
+			</br>
 			
-		<h3>Start point</h3>
-		<select class="locationPick" data-placeholder="Choose a starting location..." style="width:350px;" tabindex="2">
-			<option value=""></option>
-		</select>
-
-		<h3>End point</h3>
-		<select class="chosen-select locationPick" data-placeholder="Choose a starting location..." style="width:350px;" tabindex="2">
-			<option value=""></option>
-			<option value="Option0">option 0</option>
-		</select>
-	
+			<label for="start-pt">Starting location</label>
+			<select class="locationPick form-control" id="start-pt" data-placeholder="Choose a starting location..." tabindex="2">
+				<!-- options generated here with JS -->
+			</select>
+			</br>
 			
+			<!-- class="chosen-select" to enable chosen -->
+			<label for="end-pt">Destination</label>
+			<select class="locationPick form-control" id="end-pt" data-placeholder="Choose a starting location..." tabindex="2">
+			</select>
+			<br><br>
+			
+			<input type="submit" value="submit" class="mybutton">
 		</div>
+		
+	  </div>
 	</div>
   </div>
 </div>
