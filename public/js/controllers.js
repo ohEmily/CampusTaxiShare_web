@@ -75,6 +75,27 @@ angular.module('myApp.controllers', []).
 	
 	controller('dashboard', function ($scope, $location)
 	{
+		// populate group
+		(function() {
+			var location = Parse.Object.extend("Location");
+			var query = new Parse.Query(location);
+			query.find({
+				success: function(results) {
+					// Do something with the returned Parse.Object values
+					for (var i = 0; i < results.length; i++) { 
+						$(".locationPick").append(new 
+							Option(results[i].get("locationName"), "Option" + i));
+					}
+				},
+				error: function(error) {
+					alert("Error: " + error.code + " " + error.message);
+				}
+			});
+			
+			$(".chosen-select").chosen();
+		})();
+		
+		
 		$scope.createGroup = function()
 		{
 			
