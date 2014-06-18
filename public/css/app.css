@@ -178,3 +178,8 @@ h2
 	-webkit-border-radius: 5px;
 	border-radius:6px;
 }
+
+option
+{
+	color: #000;
+}

@@ -30,7 +30,7 @@ angular.module('myApp', [
 		}).
 		when('/create', {
 			templateUrl: 'partials/create.html',
-			controller: 'dashboard'
+			controller: 'create'
 		}).
 			otherwise({
 			redirectTo: '/login'
