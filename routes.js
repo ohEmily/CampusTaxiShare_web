@@ -5,7 +5,7 @@
 module.exports = function(app){
 
 	// specific chat room request
-	app.get('/', function(req,res){		
+	app.get('/login', function(req,res){
 		res.render('index.ejs');
 	});
 	
@@ -15,5 +15,9 @@ module.exports = function(app){
 	
 	app.get('/dashboard', function(req,res){
 		res.render('dashboard.ejs');
+	});
+	
+	app.get('/*', function(req, res){
+		res.redirect('/login');
 	});
 };
