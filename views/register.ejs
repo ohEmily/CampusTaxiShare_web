@@ -1,14 +1,21 @@
-<div id="main" class="box">
-  <h1>split cabs with people from your college.</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<%- include _header.ejs %>
+</head>
 
-  <p>We won't spam you, ever. This information is used to confirm that you're a student and so we know what to call you.<br></p>
+<body>
+	<%- include _nav.ejs %>
 
-  <form ng-submit="submitRegister()" class="myform">
-    <div class="form-group">
-	  <input ng-model="user.personal_name" type="text" name="name" class="form-control" placeholder="your name"><br>
-	  <input ng-model="user.email" type="email" name="email" class="form-control" placeholder=".edu email address"><br>
-	  <input ng-model="user.password" type="password" name="password" class="form-control" placeholder="password"><br>
-	  <input type="submit" value="start splitting cabs" class="mybutton">
-    </div>
-  </form>
-</div>
+	<%- include _register.ejs %>
+
+	<div id="about_hover" class="box">
+		Campus Taxi Share helps you find members of your campus community to share taxis with.<br><br>
+		Cut costs and meet people.<br><br>
+	</div>
+
+</body>
+	
+<%- include footer.ejs %>
+
+</html>

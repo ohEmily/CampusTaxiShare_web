@@ -1,25 +1,28 @@
-// general app-level js
+$(document).ready(function() {
+	personal_name = Parse.User.current().get("personal_name");
 
-var personal_name = Parse.User.current().get("personal_name");
-
-// every time a new session starts, check if user is logged in. If not, redirect to login
-(var checklogin = function() {
-	if (!Parse.User.current()) {
-		// redirect to login page (not working)
-		$scope.$apply();
-	}
-})();	
-var showAbout = function()
-{
-	$("#about_hover").show();
-};
-		
-var hideAbout = function()
-{
-	$("#about_hover").hide();
-};
-		
-var logout = function()
-{
-	Parse.User.logOut();
-};
+	// check if user is logged in. If not, redirect to login
+	(function() {
+		if (!Parse.User.current()) {
+			// redirect to login page (not working)
+			
+		}
+	})();
+	
+	('#about-text').hover(
+		function () {
+			alert("show!");
+			$('#about_hover').show();
+		},
+		function () {
+			alert("hide!");
+			$('#about_hover').hide();
+		}
+	);
+	
+			
+	var logout = function()
+	{
+		Parse.User.logOut();
+	};
+});
