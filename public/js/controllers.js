@@ -5,6 +5,9 @@
 angular.module('myApp.controllers', []).
 	controller('AppCtrl', function ($scope, $http)
 	{
+		$scope.personal_name = Parse.User.current().get("personal_name");
+		
+
 		// every time a new session starts, check if user is logged in. If not, redirect to login
 		$scope.checklogin = function() {
 			if (!Parse.User.current()) {
@@ -95,7 +98,7 @@ angular.module('myApp.controllers', []).
 					// Do something with the returned Parse.Object values
 					for (var i = 0; i < results.length; i++) { 
 						var thisGroup = results[i];
-						$("#dashboard-table > tbody:last").append('<tr>' 
+						$("#new-trips-table > tbody:last").append('<tr>' 
 							+ '<td>' + thisGroup.get("owner").id + '</td>' 
 							+ '<td>' + thisGroup.get("departure_time_date")  + '</td>'
 							+ '<td>' + "hi" + '</td>' //  results.get("start_point")
@@ -108,7 +111,6 @@ angular.module('myApp.controllers', []).
 				}
 			});
 			
-			$('#dashboard-table > tbody:last').append('<tr>test1</tr><tr>test2</tr><tr>test1</tr><tr>test2</tr>');
 		})();
 	}).
 	
