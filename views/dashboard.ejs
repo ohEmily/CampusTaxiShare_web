@@ -7,13 +7,14 @@
 <body>
 
 <%- include _nav.ejs %>
+<%- include _about.ejs %>
 
 <div class="container-fluid">
   <div class="row">
 	<div class="col-sm-3 col-md-2 sidebar">
 	  <ul class="nav nav-sidebar">
-		<li class="active"><a href="/dashboard">Home</a></li>
-		<li><a href="/create">Create a trip</a></li>
+		<li class="active"><a href="/dashboard/#dashboard-section">Home</a></li>
+		<li><a href="/dashboard/#create-section">Create a Trip</a></li>
 	  </ul>
 	  <ul class="nav nav-sidebar">
 		<li><a href="">My profile</a></li>
@@ -23,7 +24,8 @@
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	  
-		<%- include _trips.ejs -%>
+		<div id="dashboard-section"><%- include _trips.ejs -%></div>
+		<div id="create-section"><%- include _create.ejs -%></div>
 	  
 	</div><!-- end main content -->
   </div>
@@ -32,5 +34,6 @@
 	
 <%- include _footer.ejs %>
 <script src="/js/dashboard.js"></script>
+<script src="/js/create.js"></script>
 
 </html>

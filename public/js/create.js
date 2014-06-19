@@ -1,24 +1,3 @@
-// populate group select
-(function() {
-	var location = Parse.Object.extend("Location");
-	var query = new Parse.Query(location);
-	query.find({
-		success: function(results) {
-			// Do something with the returned Parse.Object values
-			for (var i = 0; i < results.length; i++) { 
-				$(".locationPick").append(new 
-					Option(results[i].get("locationName"), 
-					results[i].get("locationId")));
-			}
-		},
-		error: function(error) {
-			alert("Error: " + error.code + " " + error.message);
-		}
-	});
-	
-	$(".chosen-select").chosen();
-})();
-
 /** Returns the Location object with the name passed as needle. */
 var getLocationName = function(needle) 
 {
@@ -59,3 +38,24 @@ var submitGroup = function() {
 		}
 	});
 }
+
+// populate group select
+$(document).ready(function() {
+	var location = Parse.Object.extend("Location");
+	var query = new Parse.Query(location);
+	query.find({
+		success: function(results) {
+			// Do something with the returned Parse.Object values
+			for (var i = 0; i < results.length; i++) { 
+				$(".locationPick").append(new 
+					Option(results[i].get("locationName"), 
+					results[i].get("locationId")));
+			}
+		},
+		error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		}
+	});
+	
+	//$(".chosen-select").chosen();
+})();
