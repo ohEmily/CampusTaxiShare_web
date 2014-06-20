@@ -4,10 +4,8 @@ Android and web app that allows college students to find people from their campu
 
 ## Stack
  * Node
- * AngularJS
  * HTML/CSS/JavaScript/jQuery
  * Parse.com
- * chosen.js
 
 #### Credits
 
