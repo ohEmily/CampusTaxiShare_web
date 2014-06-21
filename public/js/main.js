@@ -21,9 +21,12 @@ $(document).ready(function() {
 			$('#about_hover').hide();
 		}
 	);
-			
-	var logout = function()
-	{
-		Parse.User.logOut();
-	};
+	
+	$('#logout-link').click(
+		function() {
+			Parse.User.logOut();
+			// reload the window so that it checks if you're logged in
+			window.location.reload();
+		}
+	);
 });
