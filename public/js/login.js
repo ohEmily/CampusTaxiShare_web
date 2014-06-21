@@ -2,9 +2,7 @@ var submitLogin = function(username, password) {
 	Parse.User.logIn(username, password, {
 		success: function(user) {
 			// successful login --> dashboard
-			$scope.$apply(function() {
-				$location.path('/dashboard');
-			});
+			window.location = "/dashboard";
 		},
 		error: function(user, error) {
 			alert("Error message!");

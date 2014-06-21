@@ -2,15 +2,11 @@ $(document).ready(function() {
 	Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", 
 		"V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 	
-	personal_name = Parse.User.current().get("personal_name");
-
 	// check if user is logged in. If not, redirect to login
-	(function() {
-		if (!Parse.User.current()) {
-			// redirect to login page (not working)
-			
-		}
-	})();
+	if (!Parse.User.current()) {
+		// redirect to home
+		window.location = "/";
+	};
 	
 	// show about text on hover
 	$('#about-text').hover(
@@ -25,8 +21,7 @@ $(document).ready(function() {
 	$('#logout-link').click(
 		function() {
 			Parse.User.logOut();
-			// reload the window so that it checks if you're logged in
-			window.location.reload();
+			window.location = "/"; // redir to home
 		}
 	);
 });
