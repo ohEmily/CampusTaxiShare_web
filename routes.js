@@ -31,11 +31,11 @@ module.exports = function(app){
 	});
 	*/
 	app.get('/api/trips', function(req, res){
-	
+		res.send('hello, world!');
 	});
 	
-	app.get('/api/:user_id', function(req, res){
-	
+	app.get('/api/trips/:user_id', function(req, res){
+		// req.params.user_id
 	});
 	
 	app.get('api/create_trip', function(req, res){
