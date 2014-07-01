@@ -4,7 +4,6 @@
 
 module.exports = function(app){
 
-	// specific chat room request
 	app.get('/login', function(req,res){
 		res.render('index.ejs');
 	});
@@ -19,5 +18,27 @@ module.exports = function(app){
 	
 	app.get('/*', function(req, res){
 		res.redirect('/login');
+	});
+	
+	// database-related routes
+	/* 
+	app.get('/api/login', function(req, res){
+	
+	});
+	
+	app.get('api/register', function(req,res){
+	
+	});
+	*/
+	app.get('/api/trips', function(req, res){
+	
+	});
+	
+	app.get('/api/:user_id', function(req, res){
+	
+	});
+	
+	app.get('api/create_trip', function(req, res){
+	
 	});
 };
