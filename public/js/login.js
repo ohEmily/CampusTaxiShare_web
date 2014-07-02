@@ -4,8 +4,8 @@ function User(aEmail, aPass) {
 }
 
 function AppViewModel() {
-	this.emailField = ko.observable("test@test.com");
-    this.passwordField = ko.observable("test again");
+	this.emailField = ko.observable("check@check.com");
+    this.passwordField = ko.observable("check");
 	
 	var user = new User(this.emailField, this.passwordField);
 	
@@ -14,7 +14,14 @@ function AppViewModel() {
             data: ko.toJSON(user),
             type: "post", contentType: "application/json",
             success: function(result) {
-				alert(result);
+				if (typeof result.redirect == 'string') {
+					window.location = result.redirect;
+				}
+				if (typeof result.error == 'string') {
+					// show an error message
+				}
+				else
+					// show another error message
 			}
 		});
 	};

@@ -16,17 +16,15 @@ module.exports = function(app, Parse){
 		res.render('dashboard.ejs');
 	});
 	
-	// database-related routes
+	// user management-related routes
 	app.post('/api/login', function(req, res){
 		
 		Parse.User.logIn(req.body.email, req.body.password, {
 			success: function(user) {
-				res.send("successfully logged in!");
-				// successful login --> dashboard
-				// window.location = "/dashboard";
+				res.send( {redirect: '/dashboard' } );
 			},
 			error: function(user, error) {
-				res.send("Error message!");
+				res.send( {error: 'Username and password combination does not exist.'} );
 			}
 		});
 	});
@@ -42,7 +40,7 @@ module.exports = function(app, Parse){
 		{
 			success: function(user)
 			{
-				res.send("successfully registered!");
+				res.render('dashboard.ejs');
 			},
 			error: function(user, error)
 			{
@@ -52,6 +50,11 @@ module.exports = function(app, Parse){
 		});
 	});
 	
+	app.get('api/logout', function(req, res){
+		Parse.User.logOut();
+	});
+	
+	// trip-related routes
 	app.get('/api/trips', function(req, res){
 		res.send('hello, world!');
 	});
@@ -62,10 +65,6 @@ module.exports = function(app, Parse){
 	
 	app.get('api/create_trip', function(req, res){
 	
-	});
-	
-	app.get('api/logout', function(req, res){
-		Parse.User.logOut();
 	});
 	
 	// all others
