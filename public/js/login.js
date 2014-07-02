@@ -1,7 +1,6 @@
-// This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
 function User(aEmail, aPass) {
     this.email = aEmail;
-	this.pass = aPass;
+	this.password = aPass;
 }
 
 function AppViewModel() {
@@ -18,36 +17,8 @@ function AppViewModel() {
 				alert(result);
 			}
 		});
-		
-		alert(ko.toJSON(user));
 	};
-	
 }
 
 // Activates knockout.js
 ko.applyBindings(new AppViewModel());
-
-/*	
-$('#login-form').submit(function(event) {
-	var name = $('#name-field').val();
-	var pass = $('#pass-field').val();
-	
-	submitLogin(name, pass);
-	
-	event.preventDefault();
-});
-*/
-
-var submitLogin = function(username, password) {
-	/*
-	Parse.User.logIn(username, password, {
-		success: function(user) {
-			// successful login --> dashboard
-			// window.location = "/dashboard";
-		},
-		error: function(user, error) {
-			alert("Error message!");
-		}
-	});
-	*/
-};

@@ -3,11 +3,11 @@
 
   <p>We won't spam you, ever. This information is used to confirm that you're a student and so we know what to call you.<br></p>
 
-  <form ng-submit="submitRegister()" class="myform">
+  <form class="myform" data-bind="submit: register">
     <div class="form-group">
-	  <input id="name-field" type="text" name="name" class="form-control" placeholder="your name"><br>
-	  <input id="email-field" type="email" name="email" class="form-control" placeholder=".edu email address"><br>
-	  <input id="pass-field" type="password" name="password" class="form-control" placeholder="password"><br>
+	  <input data-bind="value: nameField" type="text" class="form-control" placeholder="your name"><br>
+	  <input data-bind="value: emailField" type="email" class="form-control" placeholder=".edu email address"><br>
+	  <input data-bind="value: passwordField" type="password" class="form-control" placeholder="password"><br>
 	  <input type="submit" value="start splitting cabs" class="mybutton">
     </div>
   </form>

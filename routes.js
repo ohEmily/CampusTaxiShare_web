@@ -2,7 +2,7 @@
  * It sets up the application endpoints/routes.
  */
 
-module.exports = function(app){
+module.exports = function(app, Parse){
 
 	app.get('/login', function(req,res){
 		res.render('index.ejs');
@@ -18,11 +18,38 @@ module.exports = function(app){
 	
 	// database-related routes
 	app.post('/api/login', function(req, res){
-		res.send(req.toString()); // need to parse Json
+		
+		Parse.User.logIn(req.body.email, req.body.password, {
+			success: function(user) {
+				res.send("successfully logged in!");
+				// successful login --> dashboard
+				// window.location = "/dashboard";
+			},
+			error: function(user, error) {
+				res.send("Error message!");
+			}
+		});
 	});
 	
-	app.get('api/register', function(req,res){
-	
+	app.post('api/register', function(req,res){
+		
+		var user = new Parse.User();
+		user.set("personal_name", req.body.personal_name);
+		user.set("username", req.body.email);
+		user.set("password", req.body.password);
+			
+		user.signUp(null, 
+		{
+			success: function(user)
+			{
+				res.send("successfully registered!");
+			},
+			error: function(user, error)
+			{
+				// TODO show the error message somewhere on DOM.
+				res.send("Error: " + error.code + " " + error.message);
+			}
+		});
 	});
 	
 	app.get('/api/trips', function(req, res){
