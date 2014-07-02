@@ -14,7 +14,9 @@ function AppViewModel() {
 		$.ajax("/api/login", {
             data: ko.toJSON(user),
             type: "post", contentType: "application/json",
-            success: function(result) { alert(result) }
+            success: function(result) {
+				alert(result);
+			}
 		});
 		
 		alert(ko.toJSON(user));

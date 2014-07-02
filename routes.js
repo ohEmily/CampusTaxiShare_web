@@ -17,8 +17,8 @@ module.exports = function(app){
 	});
 	
 	// database-related routes
-	app.get('/api/login', function(req, res){
-		
+	app.post('/api/login', function(req, res){
+		res.send(req.toString()); // need to parse Json
 	});
 	
 	app.get('api/register', function(req,res){
