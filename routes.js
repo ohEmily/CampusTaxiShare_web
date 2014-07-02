@@ -18,7 +18,7 @@ module.exports = function(app){
 	
 	// database-related routes
 	app.get('/api/login', function(req, res){
-		res.send();
+		
 	});
 	
 	app.get('api/register', function(req,res){

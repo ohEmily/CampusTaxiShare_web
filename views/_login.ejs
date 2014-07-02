@@ -1,10 +1,10 @@
 <div id="main" class="box">
   <h1>split cabs with people from your college.</h1>
 
-  <form id="login-form" action="/dashboard"> 
+  <form id="login-form" data-bind="submit: login"> 
 	<div class="form-group">
-		<input id="name-field" type="email" name="email" class="form-control" placeholder=".edu email address"><br>
-		<input id="pass-field" type="password" name="password" class="form-control" placeholder="password"><br>
+		<input data-bind="value: emailField" type="email" class="form-control" placeholder=".edu email address"><br>
+		<input data-bind="value: passwordField" type="password" class="form-control" placeholder="password"><br>
 		<input type="submit" value="log in" class="mybutton">
 	</div>
   </form>
