@@ -2,10 +2,14 @@ var port = 3000;
 
 /** Set up Express with module dependencies */
 var express = require('express'),
-	http = require('http');
+	http = require('http'),
+	Parse = require('parse').Parse;
 	
 var app = module.exports = express();
 
+// connection to database
+Parse.initialize("Dvtzs3UXsAhPCdhDNfqTBLL2f6cUS7F4elPM29FT", 
+	"V2MMK6JjhuGW9YvZiJWbif1qm9MXx6d4r7jLLg68");
 
 /** Configuration */
 // all environments
@@ -15,7 +19,7 @@ app.set('port', process.env.PORT || port);
 // serve all asset files from necessary directories
 app.use("/js", express.static(__dirname + "/public/js"));
 app.use("/css", express.static(__dirname + "/public/css"));
-app.use("/partials", express.static(__dirname + "/public/partials"));
+app.use("/fonts", express.static(__dirname + "/public/fonts"));
 app.use("/img", express.static(__dirname + "/public/img"));
 
 // linking

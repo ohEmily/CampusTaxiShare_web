@@ -16,20 +16,15 @@ module.exports = function(app){
 		res.render('dashboard.ejs');
 	});
 	
-	app.get('/*', function(req, res){
-		res.redirect('/login');
-	});
-	
 	// database-related routes
-	/* 
 	app.get('/api/login', function(req, res){
-	
+		res.send();
 	});
 	
 	app.get('api/register', function(req,res){
 	
 	});
-	*/
+	
 	app.get('/api/trips', function(req, res){
 		res.send('hello, world!');
 	});
@@ -40,5 +35,14 @@ module.exports = function(app){
 	
 	app.get('api/create_trip', function(req, res){
 	
+	});
+	
+	app.get('api/logout', function(req, res){
+		Parse.User.logOut();
+	});
+	
+	// all others
+	app.get('/*', function(req, res){
+		res.redirect('/login');
 	});
 };
