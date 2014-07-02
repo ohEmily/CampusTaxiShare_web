@@ -5,10 +5,9 @@ Android and web app that allows college students to find people from their campu
 ## Stack
  * Node
  * HTML/CSS/JavaScript/jQuery
+ * Knockout.js
  * Parse.com
 
 #### Credits
 
 Cover photo is [mpgarate](https://github.com/freeslugs)'s. Thanks Michael!
-
-Thanks to [freeslugs](https://github.com/freeslugs) who used [btford](https://github.com/btford)'s Angular seed to create his own, which I later used as a starting point.
