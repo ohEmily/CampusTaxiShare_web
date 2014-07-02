@@ -10,4 +10,4 @@ Android and web app that allows college students to find people from their campu
 
 #### Credits
 
-Cover photo is [mpgarate](https://github.com/freeslugs)'s. Thanks Michael!
+Cover photo is [mpgarate](https://github.com/mpgarate)'s. Thanks Michael!
