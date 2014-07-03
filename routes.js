@@ -14,6 +14,8 @@ module.exports = function(app, Parse){
 	
 	app.get('/dashboard', function(req,res){
 		res.render('dashboard.ejs');
+		
+		
 	});
 	
 	// user management-related routes
@@ -29,7 +31,7 @@ module.exports = function(app, Parse){
 		});
 	});
 	
-	app.post('api/register', function(req,res){
+	app.post('/api/register', function(req,res){
 		
 		var user = new Parse.User();
 		user.set("personal_name", req.body.personal_name);
@@ -40,30 +42,52 @@ module.exports = function(app, Parse){
 		{
 			success: function(user)
 			{
-				res.render('dashboard.ejs');
+				Parse.User.logIn(req.body.email, req.body.password);
+				res.send( {redirect: '/dashboard' } );
 			},
-			error: function(user, error)
-			{
-				// TODO show the error message somewhere on DOM.
-				res.send("Error: " + error.code + " " + error.message);
+			error: function(user, error) {
+				res.send( {error: 'An account with this email already exists.'} );
 			}
 		});
 	});
 	
-	app.get('api/logout', function(req, res){
+	app.get('/api/logout', function(req, res){
 		Parse.User.logOut();
 	});
 	
 	// trip-related routes
-	app.get('/api/trips', function(req, res){
-		res.send('hello, world!');
+	app.get('/api/trips', function(req, res) {
+		var Group = Parse.Object.extend("Group");
+		var query = new Parse.Query(Group);
+		
+		query.find({
+			success: function(results) {
+				// Do something with the returned Parse.Object values
+				res.send(results);
+			}
+			/*
+			for (var i = 0; i < results.length; i++) { 
+				var thisGroup = results[i];
+				$("#new-trips-table > tbody:last").append('<tr>' 
+					+ '<td>' + thisGroup.get("owner").id + '</td>' 
+					+ '<td>' + thisGroup.get("departure_time_date")  + '</td>'
+					+ '<td>' + "hi" + '</td>' //  results.get("start_point")
+					+ '<td>' + "hi" + '</td>' // results.get("end_point")
+					+ '</tr>');
+				}
+			},
+			error: function(error) {
+				alert("Error: " + error.code + " " + error.message);
+			}
+			*/
+		});
 	});
 	
 	app.get('/api/trips/:user_id', function(req, res){
 		// req.params.user_id
 	});
 	
-	app.get('api/create_trip', function(req, res){
+	app.get('/api/create_trip', function(req, res){
 	
 	});
 	

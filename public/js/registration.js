@@ -4,7 +4,7 @@ function NewUser(aName, aEmail, aPass) {
 	this.password = aPass;
 }
 
-function AppViewModel() {
+function AppViewModel() {	
 	this.nameField = ko.observable("Joe");
 	this.emailField = ko.observable("test@test.com");
 	this.passwordField = ko.observable("test");
@@ -16,11 +16,20 @@ function AppViewModel() {
             data: ko.toJSON(user),
             type: "post", contentType: "application/json",
             success: function(result) {
-				alert(result);
+				if (typeof result.redirect == 'string') {
+					window.location = result.redirect;
+				} 
+				if (typeof result.error == 'string') {
+					// show an error message
+					alert(result.error);
+				} 
+				else {
+					// show another error message
+				}
 			}
 		});
 	};
 };
 
 // Activates knockout.js
-ko.applyBindings(new AppViewModel());
+ko.applyBindings(new AppViewModel(), document.getElementById('main'));

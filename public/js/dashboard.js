@@ -1,27 +1,23 @@
-// future feature: show groups created by this user
-// https://www.parse.com/docs/relations_guide
-		
-// populate table
-(function() {
-	//alert("dashboard");
-		
-	var Group = Parse.Object.extend("Group");
-	var query = new Parse.Query(Group);
-	query.find({
-		success: function(results) {
-		// Do something with the returned Parse.Object values
-		for (var i = 0; i < results.length; i++) { 
-			var thisGroup = results[i];
-			$("#new-trips-table > tbody:last").append('<tr>' 
-				+ '<td>' + thisGroup.get("owner").id + '</td>' 
-				+ '<td>' + thisGroup.get("departure_time_date")  + '</td>'
-				+ '<td>' + "hi" + '</td>' //  results.get("start_point")
-				+ '<td>' + "hi" + '</td>' // results.get("end_point")
-				+ '</tr>');
+function AppViewModel() {
+
+	self.getAllTrips = function() {
+		var allTrips = [];
+	
+		$.ajax("/api/trips", {
+            type: "get", contentType: "application/json",
+            success: function(result) {
+				if (typeof result == 'string') {
+					alert("hi");
+					//alert(jQuery.parseJSON(result));
+				}
+				else {
+					alert("error");
+					// show an error message
+				}
 			}
-		},
-		error: function(error) {
-			alert("Error: " + error.code + " " + error.message);
-		}
-	});
-})();
+		});
+	}();
+}
+
+// Activates knockout.js
+ko.applyBindings(new AppViewModel(), document.getElementById('box-dash'));

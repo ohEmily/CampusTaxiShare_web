@@ -20,12 +20,13 @@ function AppViewModel() {
 				if (typeof result.error == 'string') {
 					// show an error message
 				}
-				else
+				else {
 					// show another error message
+				}
 			}
 		});
 	};
 }
 
 // Activates knockout.js
-ko.applyBindings(new AppViewModel());
+ko.applyBindings(new AppViewModel(), document.getElementById('main'));
