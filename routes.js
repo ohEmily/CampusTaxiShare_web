@@ -72,7 +72,6 @@ module.exports = function(app, Parse){
 				
 				for (var i = 0; i < results.length; i++){
 					jsonArray.push(JSON.stringify(results[i]));
-					
 				}
 				res.send(jsonArray);
 			}
@@ -105,6 +104,25 @@ module.exports = function(app, Parse){
 				res.send("We were unable to save your trip.");
 			}
 		});
+	});
+	
+	app.get('/api/locations', function(req, res) {
+
+		var Location = Parse.Object.extend("Location");
+		var query = new Parse.Query(Location);
+		// http://stackoverflow.com/questions/14120847
+		
+		query.find({
+			success: function(results) {
+				var jsonArray = [];
+				
+				for (var i = 0; i < results.length; i++){
+					jsonArray.push(results[i]);
+				}
+				res.send(jsonArray);
+			}
+		});
+		
 	});
 	
 	// all others

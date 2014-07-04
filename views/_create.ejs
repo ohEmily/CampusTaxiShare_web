@@ -1,6 +1,6 @@
 <h1 class="page-header">Create a Trip</h1>
 
-<div class="box-dash">			
+<div class="box-dash" id="create-div">			
 	<form data-bind="submit: createTrip">
 	  <div class="form-group">
 		<!-- temporary -->
@@ -9,14 +9,14 @@
 		</br>
 		
 		<label for="start-pt">Starting location</label>
-		<select data-bind="value: startPoint" class="locationPick form-control" id="start-pt" data-placeholder="Choose a starting location..." tabindex="2">
+		<select data-bind="value: startPoint, options: allLocationNames" class="locationPick form-control" id="start-pt" data-placeholder="Choose a starting location..." tabindex="2">
 			<!-- options generated here with JS -->
 		</select>
 		</br>
 		
 		<!-- class="chosen-select" to enable chosen -->
 		<label for="end-pt">Destination</label>
-		<select data-bind="value: endPoint" class="locationPick form-control" id="end-pt" data-placeholder="Choose a starting location..." tabindex="2">
+		<select data-bind="value: endPoint, options: allLocationNames" class="locationPick form-control" id="end-pt" data-placeholder="Choose a starting location..." tabindex="2">
 		</select>
 		<br><br>
 		

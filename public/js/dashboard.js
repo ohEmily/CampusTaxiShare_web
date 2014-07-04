@@ -5,7 +5,7 @@ function Trip(departure, start, end) {
 	this.owner;
 }
 
-function AppViewModel() {
+function TripsAppViewModel() {
 	self.allTrips = [];
 	
 	self.getAllTrips = function() {
@@ -20,7 +20,13 @@ function AppViewModel() {
 			}
 		});
 	}();
-	
+}
+
+// Activates knockout.js
+ko.applyBindings(new TripsAppViewModel(), document.getElementById('trips-div'));
+
+function CreateAppViewModel() {
+
 	this.departureWhen = ko.observable("");
 	this.startPoint = ko.observable("");
 	this.endPoint = ko.observable("");
@@ -32,15 +38,29 @@ function AppViewModel() {
             data: ko.toJSON(trip),
 			type: "post", contentType: "application/json",
             success: function(result) {
-				alert("hi");
-				alert(result);
+				alert("Success: " + result);
 			},
 			failure: function() {
 				alert("Error: " + result);
 			}
 		});
 	};
+	
+	self.allLocationNames = ko.observableArray([]);
+	
+	self.populateLocationSelects = function() {
+		$.ajax("/api/locations", {
+			type: "get", contentType: "application/json",
+            success: function(result) {
+				for (var i = 0; i < result.length; i++) {
+					allLocationNames.push(result[i].locationName);
+				}
+			},
+			failure: function() {
+				alert("Error: " + result);
+			}
+		});
+	}();
 }
 
-// Activates knockout.js
-ko.applyBindings(new AppViewModel(), document.getElementById('box-dash'));
+ko.applyBindings(new CreateAppViewModel(), document.getElementById('create-div'));
