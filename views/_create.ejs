@@ -1,22 +1,22 @@
 <h1 class="page-header">Create a Trip</h1>
 
 <div class="box-dash">			
-	<form ng-submit="submitGroup()">
+	<form data-bind="submit: createTrip">
 	  <div class="form-group">
 		<!-- temporary -->
 		<label for="timeAndDateIn">Time and date (mm/dd/yyyy hh:ss)</label>
-		<input ng-model="group.when" type="datetime" class="form-control" id="timeAndDateIn" placeholder="Enter time and date">
+		<input data-bind="value: departureWhen" type="datetime" class="form-control" id="timeAndDateIn" placeholder="Enter time and date">
 		</br>
 		
 		<label for="start-pt">Starting location</label>
-		<select ng-model="group.start" class="locationPick form-control" id="start-pt" data-placeholder="Choose a starting location..." tabindex="2">
+		<select data-bind="value: startPoint" class="locationPick form-control" id="start-pt" data-placeholder="Choose a starting location..." tabindex="2">
 			<!-- options generated here with JS -->
 		</select>
 		</br>
 		
 		<!-- class="chosen-select" to enable chosen -->
 		<label for="end-pt">Destination</label>
-		<select ng-model="group.end" class="locationPick form-control" id="end-pt" data-placeholder="Choose a starting location..." tabindex="2">
+		<select data-bind="value: endPoint" class="locationPick form-control" id="end-pt" data-placeholder="Choose a starting location..." tabindex="2">
 		</select>
 		<br><br>
 		

@@ -3,19 +3,24 @@
  */
 
 module.exports = function(app, Parse){
+	
+	var checkLogin = function(res) {
+		if (!Parse.User.current()) {
+			res.redirect('/');
+		}
+	};
 
 	app.get('/login', function(req,res){
 		res.render('index.ejs');
 	});
-	
+
 	app.get('/register', function(req,res){
 		res.render('register.ejs');
 	});
 	
 	app.get('/dashboard', function(req,res){
+		checkLogin(res);
 		res.render('dashboard.ejs');
-		
-		
 	});
 	
 	// user management-related routes
@@ -59,36 +64,42 @@ module.exports = function(app, Parse){
 	app.get('/api/trips', function(req, res) {
 		var Group = Parse.Object.extend("Group");
 		var query = new Parse.Query(Group);
+		// http://stackoverflow.com/questions/14120847
 		
 		query.find({
 			success: function(results) {
-				// Do something with the returned Parse.Object values
-				res.send(results);
-			}
-			/*
-			for (var i = 0; i < results.length; i++) { 
-				var thisGroup = results[i];
-				$("#new-trips-table > tbody:last").append('<tr>' 
-					+ '<td>' + thisGroup.get("owner").id + '</td>' 
-					+ '<td>' + thisGroup.get("departure_time_date")  + '</td>'
-					+ '<td>' + "hi" + '</td>' //  results.get("start_point")
-					+ '<td>' + "hi" + '</td>' // results.get("end_point")
-					+ '</tr>');
+				var jsonArray = [];
+				
+				for (var i = 0; i < results.length; i++){
+					jsonArray.push(JSON.stringify(results[i]));
+					
 				}
-			},
-			error: function(error) {
-				alert("Error: " + error.code + " " + error.message);
+				res.send(jsonArray);
 			}
-			*/
 		});
 	});
 	
-	app.get('/api/trips/:user_id', function(req, res){
+	app.get('/api/trips/:user_id', function(req, res) {
 		// req.params.user_id
 	});
 	
-	app.get('/api/create_trip', function(req, res){
-	
+	app.post('/api/create_trip', function(req, res) {
+		
+		var Group = Parse.Object.extend("Group");
+		var newGroup = new Group();
+		newGroup.set("departure_time_date",	req.body.departure_time_date);
+		newGroup.set("start_point", req.body.start_point);
+		newGroup.set("end_point", req.body.end_point);
+		newGroup.set("owner_email", "temp@test.com"); //Parse.User().getEmail());
+		
+		newGroup.save(null, {
+			success: function() {
+				res.send("New group successfully created.");
+			},
+			error: function() {
+				res.send("We were unable to save your trip.");
+			}
+		});
 	});
 	
 	// all others

@@ -8,10 +8,16 @@
 	  </a>
     </div>
 
-    <div class="navbar-collapse collapse">
+    <div id="nav-buttons" class="navbar-collapse collapse">
 	  <ul class="nav navbar-nav navbar-right">
-		<li><a id="about-text">about</a></li>
+	  
+	  <li><a id="about-text">about</a></li>
 		<li><a id="logout-link">logout</a></li>
+	  
+	  <!--
+		<li><a data-bind="event: { mouseover: showAbout, mouseout: hideAbout }" id="about-text">about</a></li>
+		<li><a data-bind="event: { click: logout }"  id="logout-link">logout</a></li>
+	  -->
 	  </ul>
     </div>
   </div>

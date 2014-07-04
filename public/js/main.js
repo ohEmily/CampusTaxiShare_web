@@ -22,3 +22,21 @@ $(document).ready(function() {
 		}
 	);
 });
+
+/*
+function AppViewModel() {
+
+	showAbout: function() {
+		$('#about_hover').show();
+	},
+	hideAbout: function() {
+		$('#about_hover').hide();
+	}
+	logout: function() {
+		alert("logout!");
+	}
+};
+
+// Activates knockout.js
+ko.applyBindings(new AppViewModel(), document.getElementById('nav-buttons'));
+*/
