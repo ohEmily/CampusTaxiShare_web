@@ -84,14 +84,19 @@ module.exports = function(app, Parse){
 	});
 	
 	app.post('/api/create_trip', function(req, res) {
+		// get current user email
+		var aUser = Parse.User.current();
+		var email = aUser.get("username");
 		
+		// create new group object
 		var Group = Parse.Object.extend("Group");
 		var newGroup = new Group();
 		newGroup.set("departure_time_date",	req.body.departure_time_date);
 		newGroup.set("start_point", req.body.start_point);
 		newGroup.set("end_point", req.body.end_point);
-		newGroup.set("owner_email", "temp@test.com"); //Parse.User().getEmail());
+		newGroup.set("owner_email", email);
 		
+		// push new group to Parse.com
 		newGroup.save(null, {
 			success: function() {
 				res.send("New group successfully created.");
