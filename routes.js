@@ -95,6 +95,8 @@ module.exports = function(app, Parse){
 		newGroup.set("end_point", req.body.end_point);
 		newGroup.set("owner_email", email);
 		
+		// res.send(JSON.stringify(newGroup));
+		
 		// push new group to Parse.com
 		newGroup.save(null, {
 			success: function() {

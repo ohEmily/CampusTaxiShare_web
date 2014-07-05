@@ -12,7 +12,9 @@ function TripsAppViewModel() {
 		$.ajax("/api/trips", {
             type: "get", contentType: "application/json",
             success: function(result) {
-				alert(result);
+				for (var i = 0; i < result.length; i++) {
+					alert(result[i]);
+				}
 			},
 			failure: function() {
 				alert("error: " + result);
@@ -27,25 +29,6 @@ ko.applyBindings(new TripsAppViewModel(), document.getElementById('trips-div'));
 
 function CreateAppViewModel() {
 
-	this.departureWhen = ko.observable("");
-	this.startPoint = ko.observable("");
-	this.endPoint = ko.observable("");
-	
-	self.createTrip = function() {
-		var trip = new Trip(this.departureWhen, this.startPoint, this.endPoint); // will add user email on server side
-	
-		$.ajax("/api/create_trip", {
-            data: ko.toJSON(trip),
-			type: "post", contentType: "application/json",
-            success: function(result) {
-				alert("Success: " + result);
-			},
-			failure: function() {
-				alert("Error: " + result);
-			}
-		});
-	};
-	
 	self.allLocationNames = ko.observableArray([]);
 	
 	self.populateLocationSelects = function() {
@@ -61,6 +44,24 @@ function CreateAppViewModel() {
 			}
 		});
 	}();
+	
+	this.departureWhen = ko.observable("");
+	this.startPoint = ko.observable("");
+	this.endPoint = ko.observable("");
+	
+	self.createTrip = function() {
+
+		var trip = new Trip(this.departureWhen(), this.startPoint(), 
+			this.endPoint()); // add user email on server side
+	
+		$.ajax("/api/create_trip", {
+            data: ko.toJSON(trip),
+			type: "post", contentType: "application/json",
+            success: function(result) {
+				alert(result);
+			}
+		});
+	};
 }
 
 ko.applyBindings(new CreateAppViewModel(), document.getElementById('create-div'));
