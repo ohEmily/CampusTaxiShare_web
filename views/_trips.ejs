@@ -12,7 +12,12 @@
 			<th>end point</th>
 		  </tr>
 		</thead>
-		<tbody></tbody> <!-- data-bind="foreach: anyTrips" -->
+		<tbody data-bind="foreach: allTrips">
+			<td data-bind="text: owner_email"></td>
+			<td data-bind="text: departure_time_date"></td>
+			<td data-bind="text: start_point"></td>
+			<td data-bind="text: end_point"></td>
+		</tbody>
 	  </table>
 	</div>
   </div>

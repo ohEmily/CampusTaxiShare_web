@@ -2,18 +2,20 @@ function Trip(departure, start, end) {
     this.departure_time_date = departure;
 	this.start_point = start;
 	this.end_point = end;
-	this.owner;
+	this.owner_email;
 }
 
 function TripsAppViewModel() {
-	self.allTrips = [];
+	self.allTrips = ko.observableArray([]);
 	
 	self.getAllTrips = function() {
 		$.ajax("/api/trips", {
             type: "get", contentType: "application/json",
             success: function(result) {
 				for (var i = 0; i < result.length; i++) {
-					alert(result[i]);
+					var newTrip = new Trip(result[i].departure_time_date, result[i].start_point, result[i].end_point);
+					newTrip.owner_email = result[i].owner_email;
+					allTrips.push(newTrip);
 				}
 			},
 			failure: function() {

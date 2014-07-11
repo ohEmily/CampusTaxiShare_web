@@ -68,12 +68,7 @@ module.exports = function(app, Parse){
 		
 		query.find({
 			success: function(results) {
-				var jsonArray = [];
-				
-				for (var i = 0; i < results.length; i++){
-					jsonArray.push(JSON.stringify(results[i]));
-				}
-				res.send(jsonArray);
+				res.send(results);
 			}
 		});
 	});
